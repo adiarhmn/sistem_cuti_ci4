@@ -6,4 +6,10 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', 'Home::index');
+/*
+    NOTE:
+    - Route ini hanya untuk fitur admin
+*/
+$routes->group('admin', ['filter' => 'access:public'], static function ($routes) {
+    $routes->get('/', 'Admin\DashboardController::index'); // Halaman Dashboard
+});
