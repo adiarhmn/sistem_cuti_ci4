@@ -10,7 +10,7 @@ use CodeIgniter\Router\RouteCollection;
     NOTE:
     - Route ini hanya untuk fitur admin
 */
-$routes->group('admin', ['filter' => 'access:public'], static function ($routes) {
+$routes->group('admin', ['filter' => 'access:admin'], static function ($routes) {
     $routes->get('/', 'Admin\DashboardController::index'); // Halaman Dashboard
 
     // Users
@@ -22,5 +22,5 @@ $routes->group('admin', ['filter' => 'access:public'], static function ($routes)
     $routes->get('user/hapus/(:num)', 'Admin\UsersController::hapus/$1'); // Proses Hapus Users
 
     // Karyawan
-    
+
 });

@@ -34,10 +34,9 @@ class Access implements FilterInterface
         if (!session()->get('id_user') || !session()->get('level')) {
             return redirect()->to(base_url('login'));
         }
-
         // Check Hak akses pengguna
         foreach ($arguments as $role) {
-            if (session()->get('level') == $role) {
+            if (session()->get('level') != $role) {
                 return redirect()->to(base_url(session()->get('level')));
             }
         }

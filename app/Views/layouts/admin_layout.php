@@ -57,51 +57,20 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="<?= base_url('/'); ?>assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">
+                            <span class="fw-bold">
+                                <?= session()->get('username'); ?>
+                            </span>
+                            |
+                            <span class="badge bg-success ms-2">
+                                <?= strtoupper(session()->get('level')); ?>
+                            </span>
+                        </span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
-                        </li>
                         <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-gear"></i>
-                                <span>Account Settings</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                                <i class="bi bi-question-circle"></i>
-                                <span>Need Help?</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="<?= base_url('logout'); ?>">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Logout</span>
                             </a>
@@ -134,9 +103,43 @@
                     <i class="bi bi-people-fill"></i>
                     <span>Users</span>
                 </a>
-            </li><!-- End Dashboard Nav -->
+            </li>
+
+            <!-- Departement -->
+            <li class="nav-item">
+                <a class="nav-link <?= active_url('admin/departement*') ?>" href="<?= base_url('admin/departement'); ?>">
+                    <i class="bi bi-building"></i>
+                    <span>Departement</span>
+                </a>
+            </li>
+
+            <!-- Jenis Cuti -->
+            <li class="nav-item">
+                <a class="nav-link <?= active_url('admin/jenis-cuti*') ?>" href="<?= base_url('admin/jenis-cuti'); ?>">
+                    <i class="bi bi-card-list"></i>
+                    <span>Jenis Cuti</span>
+                </a>
+            </li>
+
+            <!-- Karyawan -->
+            <li class="nav-item">
+                <a class="nav-link <?= active_url('admin/karyawan*') ?>" href="<?= base_url('admin/karyawan'); ?>">
+                    <i class="bi bi-person-lines-fill"></i>
+                    <span>Karyawan</span>
+                </a>
+            </li>
+
+
+            <!-- Pengajuan Cuti -->
+            <li class="nav-item">
+                <a class="nav-link <?= active_url('admin/pengajuan-cuti*') ?>" href="<?= base_url('admin/pengajuan-cuti'); ?>">
+                    <i class="bi bi-calendar4-week"></i>
+                    <span>Pengajuan Cuti</span>
+                </a>
+            </li>
         </ul>
-    </aside><!-- End Sidebar-->
+    </aside>
+
     <?= $this->renderSection('content') ?>
 
 
