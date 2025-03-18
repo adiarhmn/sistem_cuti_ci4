@@ -26,7 +26,6 @@ class UsersController extends BaseController
 
     public function tambah()
     {
-        // dd($this->request->getPost());
         // Validasi
         $validation = \Config\Services::validation();
         $validation->setRules([
@@ -66,7 +65,6 @@ class UsersController extends BaseController
     public function edit($id_user)
     {
         $userModel = new \App\Models\UserModel();
-        $user = $userModel->find($id_user);
 
         // Validasi
         $validation = \Config\Services::validation();
@@ -90,5 +88,12 @@ class UsersController extends BaseController
         $userModel->update($id_user, $data);
 
         return redirect()->to(base_url('admin/user'))->with('success', 'User berhasil diperbarui.');
+    }
+
+    public function hapus($id_user)
+    {
+        $userModel = new \App\Models\UserModel();
+        $userModel->delete($id_user);
+        return redirect()->to(base_url('admin/user'))->with('success', 'User berhasil dihapus.');
     }
 }
