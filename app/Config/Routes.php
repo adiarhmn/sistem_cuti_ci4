@@ -5,4 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+
+require APPPATH . 'Routes/admin.php';
+require APPPATH . 'Routes/karyawan.php';
+require APPPATH . 'Routes/auth.php';
