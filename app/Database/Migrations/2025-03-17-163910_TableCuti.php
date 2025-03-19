@@ -31,10 +31,12 @@ class TableCuti extends Migration
             ],
             'alasan' => [
                 'type' => 'TEXT',
+                'null' => true,
             ],
             'bukti' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'null' => true,
             ],
             'status_hrd' => [
                 'type' => 'ENUM',

@@ -36,7 +36,7 @@
                             <tr>
                                 <td><?= $index + 1; ?></td>
                                 <td><?= $item['jenis_cuti']; ?></td>
-                                <td><?= $item['lama_cuti']; ?></td>
+                                <td><?= $item['lama_cuti'] < 1 ? 'Disesuaikan' : $item['lama_cuti'] . ' Hari'; ?></td>
                                 <td>
                                     <a href="<?= base_url('/admin/jenis-cuti/edit/' . $item['id_jenis_cuti']); ?>" class="btn btn-warning">Edit</a>
                                     <a href="<?= base_url('/admin/jenis-cuti/hapus/' . $item['id_jenis_cuti']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>

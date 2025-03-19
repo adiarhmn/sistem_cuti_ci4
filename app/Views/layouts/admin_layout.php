@@ -59,11 +59,11 @@
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <span class="d-none d-md-block dropdown-toggle ps-2">
                             <span class="fw-bold">
-                                <?= session()->get('username'); ?>
+                                <?= session()->get('username') ?? "USERNAME"; ?>
                             </span>
                             |
                             <span class="badge bg-success ms-2">
-                                <?= strtoupper(session()->get('level')); ?>
+                                <?= strtoupper(session()->get('level')) ?? "LEVEL"; ?>
                             </span>
                         </span>
                     </a><!-- End Profile Iamge Icon -->
@@ -130,11 +130,11 @@
             </li>
 
 
-            <!-- Pengajuan Cuti -->
+            <!-- Cuti -->
             <li class="nav-item">
-                <a class="nav-link <?= active_url('admin/pengajuan-cuti*') ?>" href="<?= base_url('admin/pengajuan-cuti'); ?>">
+                <a class="nav-link <?= active_url('admin/cuti*') ?>" href="<?= base_url('admin/cuti'); ?>">
                     <i class="bi bi-calendar4-week"></i>
-                    <span>Pengajuan Cuti</span>
+                    <span>Monitoring Cuti</span>
                 </a>
             </li>
         </ul>

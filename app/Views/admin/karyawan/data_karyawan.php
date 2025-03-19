@@ -44,6 +44,7 @@
                                 <td>
                                     <a href="<?= base_url('/admin/karyawan/edit/' . $item['id_karyawan']); ?>" class="btn btn-warning">Edit</a>
                                     <a href="<?= base_url('/admin/karyawan/hapus/' . $item['id_karyawan']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+                                    <a href="<?= base_url('/admin/karyawan/monitoring-cuti/' . $item['id_karyawan']); ?>" class="btn btn-info">Monitoring Cuti</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

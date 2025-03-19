@@ -38,9 +38,9 @@
                     <!-- Lama Cuti -->
                     <div class="mb-3">
                         <label for="lama_cuti" class="form-label">Lama Cuti (hari)</label>
-                        <input type="number" class="form-control" id="lama_cuti" name="lama_cuti" value="<?= old('lama_cuti', $jenis_cuti['lama_cuti'] ?? ''); ?>" min="1" required>
+                        <input type="number" class="form-control" id="lama_cuti" name="lama_cuti" value="<?= old('lama_cuti', $jenis_cuti['lama_cuti'] ?? ''); ?>" min="0" required>
                     </div>
-                    
+
                     <div class="mt-5">
                         <button type="submit" class="btn btn-primary"><?= $jenis_cuti ? 'Edit' : 'Tambah'; ?></button>
                         <a href="<?= base_url('/admin/jenis-cuti'); ?>" class="btn btn-secondary ms-auto">Kembali</a>

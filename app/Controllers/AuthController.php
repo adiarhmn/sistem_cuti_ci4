@@ -30,6 +30,8 @@ class AuthController extends BaseController
 
         $user = $userModel->where('username', $username)->first();
 
+
+
         if (!$user) {
             return redirect()->to('/login')->withInput()->with('error', 'Username not found');
         }
@@ -38,13 +40,30 @@ class AuthController extends BaseController
             return redirect()->to('/login')->withInput()->with('error', 'Password is wrong');
         }
 
-        session()->set([
-            'id_user' => $user['id_user'],
-            'username' => $user['username'],
-            'level' => $user['level'],
-        ]);
+        // Jika user level admin
+        if ($user['level'] == 'admin') {
+            session()->set([
+                'id_user' => $user['id_user'],
+                'username' => $user['username'],
+                'level' => $user['level'],
+            ]);
+            return redirect()->to('admin');
+        }
 
-        return redirect()->to($user['level']);
+        // Jika user level karyawan
+        if ($user['level'] == 'karyawan') {
+            $karyawan = new \App\Models\KaryawanModel();
+            $karyawan = $karyawan->where('id_user', $user['id_user'])->first();
+            session()->set([
+                'id_user' => $user['id_user'],
+                'username' => $user['username'],
+                'level' => $user['level'],
+                'id_karyawan' => $karyawan['id_karyawan'],
+            ]);
+            return redirect()->to('karyawan');
+        }
+
+        return redirect()->to('/login')->withInput()->with('error', 'Your account is not active');
     }
 
     public function logout()
