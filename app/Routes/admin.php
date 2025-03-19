@@ -37,4 +37,12 @@ $routes->group('admin', ['filter' => 'access:admin'], static function ($routes) 
     $routes->get('jenis-cuti/edit/(:num)', 'Admin\JenisCutiController::tampil_form_edit/$1'); // Halaman Ubah Jenis Cuti
     $routes->post('jenis-cuti/edit/(:num)', 'Admin\JenisCutiController::edit/$1'); // Proses Ubah Jenis Cuti
     $routes->get('jenis-cuti/hapus/(:num)', 'Admin\JenisCutiController::hapus/$1'); // Proses Hapus Jenis Cuti
+
+    // Karyawan
+    $routes->get('karyawan', 'Admin\KaryawanController::index'); // Halaman Data Karyawan
+    $routes->get('karyawan/tambah', 'Admin\KaryawanController::tampil_form_tambah'); // Halaman Tambah Karyawan
+    $routes->post('karyawan/tambah', 'Admin\KaryawanController::tambah'); // Proses Tambah Karyawan
+    $routes->get('karyawan/edit/(:num)', 'Admin\KaryawanController::tampil_form_edit/$1'); // Halaman Ubah Karyawan
+    $routes->post('karyawan/edit/(:num)', 'Admin\KaryawanController::edit/$1'); // Proses Ubah Karyawan
+    $routes->get('karyawan/hapus/(:num)', 'Admin\KaryawanController::hapus/$1'); // Proses Hapus Karyawan
 });
