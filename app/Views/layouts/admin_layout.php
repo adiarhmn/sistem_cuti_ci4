@@ -134,7 +134,7 @@
             <li class="nav-item">
                 <a class="nav-link <?= active_url('admin/cuti*') ?>" href="<?= base_url('admin/cuti'); ?>">
                     <i class="bi bi-calendar4-week"></i>
-                    <span>Monitoring Cuti</span>
+                    <span>Cuti</span>
                 </a>
             </li>
         </ul>

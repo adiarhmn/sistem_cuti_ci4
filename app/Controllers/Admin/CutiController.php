@@ -17,4 +17,24 @@ class CutiController extends BaseController
             'list_cuti' => $list_cuti,
         ]);
     }
+
+    public function approve($id_cuti)
+    {
+        $cutiModel = new \App\Models\CutiModel();
+        $cuti = $cutiModel->find($id_cuti);
+        if (!$cuti) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        $data = $this->request->getPost([
+            'status_hrd',
+            'status_kadiv',
+            'status_askep',
+            'status_manager',
+        ]);
+
+        $cutiModel->update($id_cuti, $data);
+
+        return redirect()->to(base_url('admin/cuti'))->with('success', 'Cuti berhasil diapprove.');
+    }
 }

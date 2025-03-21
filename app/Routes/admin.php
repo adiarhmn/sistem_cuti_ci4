@@ -53,4 +53,5 @@ $routes->group('admin', ['filter' => 'access:admin'], static function ($routes) 
     $routes->get('cuti/edit/(:num)', 'Admin\CutiController::tampil_form_edit/$1'); // Halaman Ubah Cuti
     $routes->post('cuti/edit/(:num)', 'Admin\CutiController::edit/$1'); // Proses Ubah Cuti
     $routes->get('cuti/hapus/(:num)', 'Admin\CutiController::hapus/$1'); // Proses Hapus Cuti
+    $routes->post('cuti/approve/(:num)', 'Admin\CutiController::approve/$1'); // Proses approve Cuti
 });
