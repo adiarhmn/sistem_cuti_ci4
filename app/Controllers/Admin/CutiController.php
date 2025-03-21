@@ -8,7 +8,8 @@ class CutiController extends BaseController
 {
     public function index()
     {
-        $list_cuti = (new \App\Models\CutiModel())->join('karyawan', 'karyawan.id_karyawan = cuti.id_karyawan')
+        $list_cuti = (new \App\Models\CutiModel())
+            ->join('karyawan', 'karyawan.id_karyawan = cuti.id_karyawan')
             ->join('jenis_cuti', 'jenis_cuti.id_jenis_cuti = cuti.id_jenis_cuti')
             ->findAll();
 
