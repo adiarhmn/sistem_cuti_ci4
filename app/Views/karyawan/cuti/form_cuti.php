@@ -40,18 +40,18 @@
                                 <?php foreach ($list_jenis_cuti as $item): ?>
                                     <option value="<?= $item['id_jenis_cuti']; ?>" <?= $cuti && $cuti['id_jenis_cuti'] == $item['id_jenis_cuti'] ? 'selected' : ''; ?>>
                                         <?= $item['jenis_cuti']; ?> -
-                                        <?= $item['lama_cuti'] < 1 ? 'Disesuaikan' : $item['lama_cuti'] . ' Hari'; ?>
+                                        <?= $item['potongan_cuti'] < 1 ? 'Disesuaikan' : $item['potongan_cuti'] . ' Hari'; ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
 
-                        <!-- Potongan Cuti -->
+                        <!-- Lama Cuti -->
                         <div class="col-md-6 mb-lg-3">
-                            <label for="potongan_cuti" class="form-label">Potongan Cuti (Hari)</label>
-                            <input type="number" class="form-control" id="potongan_cuti" name="potongan_cuti"
-                                value="<?= $cuti ? $cuti['potongan_cuti'] : ''; ?>"
-                                placeholder="Masukkan jumlah potongan cuti" min="0">
+                            <label for="lama_cuti" class="form-label">Lama Cuti (Hari)</label>
+                            <input type="number" class="form-control" id="lama_cuti" name="lama_cuti"
+                                value="<?= $cuti ? $cuti['lama_cuti'] : ''; ?>"
+                                placeholder="Masukkan jumlah lama cuti" min="0">
                         </div>
 
                         <!-- Alasan -->

@@ -14,7 +14,8 @@ class JenisCutiModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'jenis_cuti',
-        'lama_cuti',
+        'potongan_cuti',
+        'status_potong_cuti',
     ];
 
     protected bool $allowEmptyInserts = false;

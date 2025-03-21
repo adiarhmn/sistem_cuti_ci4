@@ -22,6 +22,10 @@ class TableJenisCuti extends Migration
             'lama_cuti' => [
                 'type' => 'INT',
             ],
+            'status_potongan_cuti' => [
+                'type' => 'BOOLEAN',
+                'default' => 1,
+            ],
         ]);
 
         $this->forge->addKey('id_jenis_cuti', true);

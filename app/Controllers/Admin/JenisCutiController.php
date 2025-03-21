@@ -26,11 +26,13 @@ class JenisCutiController extends BaseController
 
     public function tambah()
     {
+        // dd($this->request->getPost());
         // Validasi
         $validation = \Config\Services::validation();
         $validation->setRules([
             'jenis_cuti' => 'required|alpha_numeric_space|min_length[3]|max_length[100]|is_unique[jenis_cuti.jenis_cuti]',
-            'lama_cuti' => 'required|numeric',
+            'potongan_cuti' => 'required|numeric',
+            'status_potong_cuti' => 'required|in_list[0,1]',
         ]);
         if (!$this->validate($validation->getRules())) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
@@ -40,7 +42,8 @@ class JenisCutiController extends BaseController
         $jenisCutiModel = new \App\Models\JenisCutiModel();
         $jenisCutiModel->save([
             'jenis_cuti' => $this->request->getPost('jenis_cuti'),
-            'lama_cuti' => $this->request->getPost('lama_cuti'),
+            'potongan_cuti' => $this->request->getPost('potongan_cuti'),
+            'status_potong_cuti' => $this->request->getPost('status_potong_cuti'),
         ]);
 
         return redirect()->to(base_url('admin/jenis-cuti'))->with('success', 'Jenis Cuti berhasil ditambahkan.');
@@ -66,7 +69,8 @@ class JenisCutiController extends BaseController
         $validation = \Config\Services::validation();
         $validation->setRules([
             'jenis_cuti' => 'required|alpha_numeric_space|min_length[3]|max_length[100]|is_unique[jenis_cuti.jenis_cuti,id_jenis_cuti,' . $id_jenis_cuti . ']',
-            'lama_cuti' => 'required|numeric',
+            'potongan_cuti' => 'required|numeric',
+            'status_potong_cuti' => 'required|in_list[0,1]',
         ]);
         if (!$this->validate($validation->getRules())) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
@@ -76,7 +80,8 @@ class JenisCutiController extends BaseController
         $jenisCutiModel = new \App\Models\JenisCutiModel();
         $jenisCutiModel->update($id_jenis_cuti, [
             'jenis_cuti' => $this->request->getPost('jenis_cuti'),
-            'lama_cuti' => $this->request->getPost('lama_cuti'),
+            'potongan_cuti' => $this->request->getPost('potongan_cuti'),
+            'status_potong_cuti' => $this->request->getPost('status_potong_cuti'),
         ]);
 
         return redirect()->to(base_url('admin/jenis-cuti'))->with('success', 'Jenis Cuti berhasil diubah.');

@@ -25,7 +25,7 @@ class CutiModel extends Model
         'status_manager',
         'id_jenis_cuti',
         'sisa_cuti',
-        'potongan_cuti',
+        'lama_cuti',
     ];
 
     protected bool $allowEmptyInserts = false;

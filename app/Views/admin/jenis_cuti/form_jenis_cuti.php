@@ -37,8 +37,17 @@
 
                     <!-- Lama Cuti -->
                     <div class="mb-3">
-                        <label for="lama_cuti" class="form-label">Lama Cuti (hari)</label>
-                        <input type="number" class="form-control" id="lama_cuti" name="lama_cuti" value="<?= old('lama_cuti', $jenis_cuti['lama_cuti'] ?? ''); ?>" min="0" required>
+                        <label for="potongan_cuti" class="form-label">Potongan Cuti (hari)</label>
+                        <input type="number" class="form-control" id="potongan_cuti" name="potongan_cuti" value="<?= old('potongan_cuti', $jenis_cuti['potongan_cuti'] ?? ''); ?>" min="0" required>
+                    </div>
+
+                    <!-- Status Potong Cuti -->
+                    <div class="mb-3">
+                        <label for="status_potong_cuti" class="form-label">Status Potong Cuti</label>
+                        <select class="form-select" id="status_potong_cuti" name="status_potong_cuti" required>
+                            <option value="1" <?= $jenis_cuti && $jenis_cuti['status_potong_cuti'] == 1 ? 'selected' : ''; ?>>Ya</option>
+                            <option value="0" <?= $jenis_cuti && $jenis_cuti['status_potong_cuti'] == 0 ? 'selected' : ''; ?>>Tidak</option>
+                        </select>
                     </div>
 
                     <div class="mt-5">

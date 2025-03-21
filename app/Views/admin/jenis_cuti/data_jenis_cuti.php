@@ -27,7 +27,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Jenis Cuti</th>
-                            <th>Lama Cuti</th>
+                            <th>Potongan Cuti</th>
+                            <th>Status Potong Cuti</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -36,7 +37,8 @@
                             <tr>
                                 <td><?= $index + 1; ?></td>
                                 <td><?= $item['jenis_cuti']; ?></td>
-                                <td><?= $item['lama_cuti'] < 1 ? 'Disesuaikan' : $item['lama_cuti'] . ' Hari'; ?></td>
+                                <td><?= $item['potongan_cuti'] < 1 ? 'Disesuaikan' : $item['potongan_cuti'] . ' Hari'; ?></td>
+                                <td><?= $item['status_potong_cuti'] == 1 ? 'Ya' : 'Tidak'; ?></td>
                                 <td>
                                     <a href="<?= base_url('/admin/jenis-cuti/edit/' . $item['id_jenis_cuti']); ?>" class="btn btn-warning">Edit</a>
                                     <a href="<?= base_url('/admin/jenis-cuti/hapus/' . $item['id_jenis_cuti']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>

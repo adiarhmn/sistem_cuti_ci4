@@ -69,7 +69,7 @@ class TableCuti extends Migration
                 'type' => 'INT',
                 'default' => 0,
             ],
-            'potongan_cuti' => [
+            'lama_cuti' => [
                 'type' => 'INT',
                 'default' => 0,
             ],
