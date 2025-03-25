@@ -133,4 +133,17 @@ class KaryawanController extends BaseController
         $karyawanModel->delete($id_karyawan);
         return redirect()->to(base_url('admin/karyawan'))->with('success', 'Karyawan berhasil dihapus.');
     }
+
+    public function monitoring_cuti($id_karyawan)
+    {
+        $list_cuti = (new \App\Models\CutiModel())->where('id_karyawan', $id_karyawan)
+            ->join('jenis_cuti', 'jenis_cuti.id_jenis_cuti = cuti.id_jenis_cuti')
+            ->findAll();
+        $karyawan = (new \App\Models\KaryawanModel())->find($id_karyawan);
+        // dd($list_cuti);
+        return view('admin/karyawan/monitoring_cuti', [
+            'list_cuti' => $list_cuti,
+            'karyawan'  => $karyawan
+        ]);
+    }
 }

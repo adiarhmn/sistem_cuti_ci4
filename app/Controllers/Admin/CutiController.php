@@ -37,4 +37,5 @@ class CutiController extends BaseController
 
         return redirect()->to(base_url('admin/cuti'))->with('success', 'Cuti berhasil diapprove.');
     }
+
 }

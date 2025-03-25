@@ -45,6 +45,7 @@ $routes->group('admin', ['filter' => 'access:admin'], static function ($routes) 
     $routes->get('karyawan/edit/(:num)', 'Admin\KaryawanController::tampil_form_edit/$1'); // Halaman Ubah Karyawan
     $routes->post('karyawan/edit/(:num)', 'Admin\KaryawanController::edit/$1'); // Proses Ubah Karyawan
     $routes->get('karyawan/hapus/(:num)', 'Admin\KaryawanController::hapus/$1'); // Proses Hapus Karyawan
+    $routes->get('karyawan/monitoring-cuti/(:num)', 'Admin\KaryawanController::monitoring_cuti/$1'); // Proses approve Cuti
 
     // Cuti
     $routes->get('cuti', 'Admin\CutiController::index'); // Halaman Data Cuti
